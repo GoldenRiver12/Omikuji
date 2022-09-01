@@ -30,8 +30,14 @@ class DrawLotsFragment : Fragment() {
             Navigation.findNavController(v).navigate(R.id.lotsHistoryFragment)
         }
 
+        binding.btnDrawLot.setOnClickListener {
+            binding.lotDetail.text = drawLot()
+        }
+
         return binding.root
     }
 
-
+    private fun drawLot(): String {
+        return viewModel.lotDetails.random()
+    }
 }
