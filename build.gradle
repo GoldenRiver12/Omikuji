@@ -2,8 +2,13 @@
 
 buildscript {
     ext {
+        coroutinesVersion = '1.6.1'
         daggerVersion = '2.43.2'
+        gsonVersion = '2.9.0'
         hiltVersion = '2.43.2'
+        roomVersion = '2.4.2'
+        lifecycleVersion = '2.4.1'
+        workVersion = '2.7.1'
     }
 
     dependencies {

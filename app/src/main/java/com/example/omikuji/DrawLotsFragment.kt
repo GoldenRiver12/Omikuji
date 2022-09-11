@@ -11,6 +11,8 @@ import com.example.omikuji.databinding.FragmentDrawLotsBinding
 import com.example.omikuji.databinding.FragmentLotsHistoryBinding
 import com.example.omikuji.viewmodels.DrawLotsViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.first
+import kotlin.collections.Collection.*
 
 @AndroidEntryPoint
 class DrawLotsFragment : Fragment() {
@@ -30,14 +32,17 @@ class DrawLotsFragment : Fragment() {
             Navigation.findNavController(v).navigate(R.id.lotsHistoryFragment)
         }
 
-        binding.btnDrawLot.setOnClickListener {
-            binding.lotDetail.text = drawLot()
+        viewModel.lotDetails.observe(viewLifecycleOwner) {
+
         }
+
+        binding.btnDrawLot.setOnClickListener {
+            binding.lotDetail.text = viewModel.drawLot().lotName
+        }
+
+
 
         return binding.root
     }
 
-    private fun drawLot(): String {
-        return viewModel.lotDetails.random()
-    }
 }
