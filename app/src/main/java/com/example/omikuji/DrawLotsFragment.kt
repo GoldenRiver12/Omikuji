@@ -25,7 +25,6 @@ class DrawLotsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
         binding = FragmentDrawLotsBinding.inflate(inflater, container, false)
 
         binding.btnFragmentLotsHistory.setOnClickListener { v ->
