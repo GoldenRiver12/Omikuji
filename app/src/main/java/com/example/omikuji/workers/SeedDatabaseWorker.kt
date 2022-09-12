@@ -6,7 +6,7 @@ import androidx.work.CoroutineWorker
 
 import androidx.work.WorkerParameters
 import com.example.omikuji.data.AppDatabase
-import com.example.omikuji.data.LotDetails
+import com.example.omikuji.data.LotDetail
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.google.gson.stream.JsonReader
@@ -23,12 +23,12 @@ class SeedDatabaseWorker(
             if (filename != null) {
                 applicationContext.assets.open(filename).use { inputStream ->
                     JsonReader(inputStream.reader()).use { jsonReader ->
-                        val lotDetailsType = object : TypeToken<List<LotDetails>>() {}.type
-                        val lotDetailList: List<LotDetails> =
+                        val lotDetailsType = object : TypeToken<List<LotDetail>>() {}.type
+                        val lotDetailList: List<LotDetail> =
                             Gson().fromJson(jsonReader, lotDetailsType)
 
                         val database = AppDatabase.getInstance(applicationContext)
-                        database.lotDetailsDao().insertAll(lotDetailList)
+                        database.lotDetailDao().insertAll(lotDetailList)
 
                         Result.success()
                     }

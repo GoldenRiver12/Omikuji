@@ -1,7 +1,6 @@
 package com.example.omikuji.data
 
 import android.content.Context
-import androidx.room.AutoMigration
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
@@ -15,11 +14,11 @@ import com.example.omikuji.workers.SeedDatabaseWorker
 import com.example.omikuji.workers.SeedDatabaseWorker.Companion.KEY_FILENAME
 
 @Database(
-    entities = [LotDetails::class], version = 1,
+    entities = [LotDetail::class], version = 3,
     exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {
-    abstract fun lotDetailsDao(): LotDetailsDao
+    abstract fun lotDetailDao(): LotDetailDao
 
     companion object {
         @Volatile
@@ -33,6 +32,7 @@ abstract class AppDatabase : RoomDatabase() {
 
         private fun buildDatabase(context: Context): AppDatabase {
             return Room.databaseBuilder(context, AppDatabase::class.java, DATABASE_NAME)
+                .fallbackToDestructiveMigration()
                 .addCallback(
                     object : RoomDatabase.Callback() {
                         override fun onCreate(db: SupportSQLiteDatabase) {

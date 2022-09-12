@@ -2,7 +2,7 @@ package com.example.omikuji.di
 
 import android.content.Context
 import com.example.omikuji.data.AppDatabase
-import com.example.omikuji.data.LotDetailsDao
+import com.example.omikuji.data.LotDetailDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -21,8 +21,8 @@ class DatabaseModule {
     }
 
     @Provides
-    fun provideLotDetailsDao(appDatabase: AppDatabase):LotDetailsDao{
-        return appDatabase.lotDetailsDao()
+    fun provideLotDetailsDao(appDatabase: AppDatabase):LotDetailDao{
+        return appDatabase.lotDetailDao()
     }
 
 }
