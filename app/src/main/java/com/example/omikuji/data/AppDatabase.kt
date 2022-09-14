@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import androidx.sqlite.db.SupportSQLiteDatabase
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
@@ -14,9 +15,11 @@ import com.example.omikuji.workers.SeedDatabaseWorker
 import com.example.omikuji.workers.SeedDatabaseWorker.Companion.KEY_FILENAME
 
 @Database(
-    entities = [LotDetail::class], version = 3,
+    entities = [LotDetail::class, DrawLotHistory::class],
+    version = 5,
     exportSchema = false
 )
+@TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun lotDetailDao(): LotDetailDao
 
