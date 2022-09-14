@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "lot_details")
 data class LotDetail(
-    @ColumnInfo
+    @ColumnInfo(name = "lot_name")
     val lotName: String
 ) {
     @PrimaryKey(autoGenerate = true)
