@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface LotDetailDao {
     @Query("SELECT * FROM lot_details")
-    fun getLotDetails(): Flow<List<LotDetail>>
+    fun getLotDetails(): List<LotDetail>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertAll(lotDetails: List<LotDetail>)

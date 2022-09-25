@@ -31,14 +31,14 @@ class DrawLotsFragment : Fragment() {
             Navigation.findNavController(v).navigate(R.id.lotsHistoryFragment)
         }
 
-        viewModel.lotDetails.observe(viewLifecycleOwner) {
-
-        }
 
         binding.btnDrawLot.setOnClickListener {
-            binding.lotDetail.text = viewModel.drawLot().lotName
+            viewModel.drawLot()
         }
 
+        viewModel.drawnLot.observe(viewLifecycleOwner){
+            binding.lotDetail.text = it?.lotName ?: ""
+        }
 
 
         return binding.root

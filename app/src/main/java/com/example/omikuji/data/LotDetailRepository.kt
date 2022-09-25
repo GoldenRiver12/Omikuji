@@ -9,6 +9,6 @@ class LotDetailRepository @Inject constructor(
     private val lotDetailDao: LotDetailDao
 ) {
 
-    fun getLotDetails(): Flow<List<LotDetail>> = lotDetailDao.getLotDetails()
+    fun getLotDetails(): List<LotDetail> = lotDetailDao.getLotDetails()
 
 }
