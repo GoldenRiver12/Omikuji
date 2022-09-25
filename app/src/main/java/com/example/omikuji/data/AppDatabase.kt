@@ -22,6 +22,7 @@ import com.example.omikuji.workers.SeedDatabaseWorker.Companion.KEY_FILENAME
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun lotDetailDao(): LotDetailDao
+    abstract fun drawLotHistoryDao(): DrawLotHistoryDao
 
     companion object {
         @Volatile
