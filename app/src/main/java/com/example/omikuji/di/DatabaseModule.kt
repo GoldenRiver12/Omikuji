@@ -3,6 +3,7 @@ package com.example.omikuji.di
 import android.content.Context
 import com.example.omikuji.data.AppDatabase
 import com.example.omikuji.data.DrawLotHistoryDao
+import com.example.omikuji.data.DrawLotHistoryViewDao
 import com.example.omikuji.data.LotDetailDao
 import dagger.Module
 import dagger.Provides
@@ -29,6 +30,11 @@ class DatabaseModule {
     @Provides
     fun provideDrawLotHistoryDao(appDatabase: AppDatabase): DrawLotHistoryDao{
         return appDatabase.drawLotHistoryDao()
+    }
+
+    @Provides
+    fun provideDrawLotHistoryViewDao(appDatabase: AppDatabase) :DrawLotHistoryViewDao{
+        return appDatabase.drawLotHistoryViewDao()
     }
 
 }

@@ -16,6 +16,7 @@ import com.example.omikuji.workers.SeedDatabaseWorker.Companion.KEY_FILENAME
 
 @Database(
     entities = [LotDetail::class, DrawLotHistory::class],
+    views = [DrawLotHistoryView::class],
     version = 5,
     exportSchema = false
 )
@@ -23,6 +24,7 @@ import com.example.omikuji.workers.SeedDatabaseWorker.Companion.KEY_FILENAME
 abstract class AppDatabase : RoomDatabase() {
     abstract fun lotDetailDao(): LotDetailDao
     abstract fun drawLotHistoryDao(): DrawLotHistoryDao
+    abstract fun drawLotHistoryViewDao(): DrawLotHistoryViewDao
 
     companion object {
         @Volatile
