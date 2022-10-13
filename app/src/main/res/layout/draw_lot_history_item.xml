@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="java.time.format.DateTimeFormatter" />
+        <variable
+            name="drawLotHistoryView"
+            type="com.example.omikuji.data.DrawLotHistoryView" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        app:cardBackgroundColor="#ffc"
+        app:cardCornerRadius="7dp"
+        app:cardElevation="5dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/drew_on"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text='@{drawLotHistoryView.drewOn.format(DateTimeFormatter.ofPattern("uuuu-MM-dd hh:mm:ss z"))}'
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="2022-1-1 10:30:25" />
+
+            <TextView
+                android:id="@+id/lot_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text='@{drawLotHistoryView.lotName}'
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/drew_on"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="大吉" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

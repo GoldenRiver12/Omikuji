@@ -12,5 +12,6 @@ class LotsHistoryViewModel @Inject constructor(
     drawLotHistoryViewRepository: DrawLotHistoryViewRepository
 ) : ViewModel() {
 
-    val drawLotHistories: LiveData<List<DrawLotHistoryView>> = drawLotHistoryViewRepository.getAllHistoryOrderByDrewOn().asLiveData()
+    val drawLotHistories: LiveData<List<DrawLotHistoryView>> =
+        drawLotHistoryViewRepository.getAllHistoryOrderByDrewOn().asLiveData()
 }

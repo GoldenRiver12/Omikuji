@@ -17,7 +17,7 @@ import com.example.omikuji.workers.SeedDatabaseWorker.Companion.KEY_FILENAME
 @Database(
     entities = [LotDetail::class, DrawLotHistory::class],
     views = [DrawLotHistoryView::class],
-    version = 5,
+    version = 9,
     exportSchema = false
 )
 @TypeConverters(Converters::class)
@@ -32,7 +32,7 @@ abstract class AppDatabase : RoomDatabase() {
 
         fun getInstance(context: Context): AppDatabase {
             return instance ?: synchronized(this) {
-                instance ?: buildDatabase(context)
+                instance ?: buildDatabase(context).also { instance = it }
             }
         }
 
@@ -43,6 +43,14 @@ abstract class AppDatabase : RoomDatabase() {
                     object : RoomDatabase.Callback() {
                         override fun onCreate(db: SupportSQLiteDatabase) {
                             super.onCreate(db)
+                            val request = OneTimeWorkRequestBuilder<SeedDatabaseWorker>()
+                                .setInputData(workDataOf(KEY_FILENAME to LOT_DETAIL_DATA_FILENAME))
+                                .build()
+                            WorkManager.getInstance(context).enqueue(request)
+                        }
+
+                        override fun onDestructiveMigration(db: SupportSQLiteDatabase) {
+                            super.onDestructiveMigration(db)
                             val request = OneTimeWorkRequestBuilder<SeedDatabaseWorker>()
                                 .setInputData(workDataOf(KEY_FILENAME to LOT_DETAIL_DATA_FILENAME))
                                 .build()
