@@ -17,7 +17,7 @@ import com.example.omikuji.workers.SeedDatabaseWorker.Companion.KEY_FILENAME
 @Database(
     entities = [LotDetail::class, DrawLotHistory::class],
     views = [DrawLotHistoryView::class],
-    version = 9,
+    version = 10,
     exportSchema = false
 )
 @TypeConverters(Converters::class)

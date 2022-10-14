@@ -8,6 +8,6 @@ import javax.inject.Singleton
 class DrawLotHistoryViewRepository @Inject constructor(
     val drawLotHistoryViewDao: DrawLotHistoryViewDao
 ) {
-    fun getAllHistoryOrderByDrewOn(): Flow<List<DrawLotHistoryView>> =
-        drawLotHistoryViewDao.getAllOrderByDrewOn()
+    fun getAllHistoryOrderByDrewAt(): Flow<List<DrawLotHistoryView>> =
+        drawLotHistoryViewDao.getAllOrderByDrewAt()
 }

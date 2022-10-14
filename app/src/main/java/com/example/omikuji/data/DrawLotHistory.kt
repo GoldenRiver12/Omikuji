@@ -10,8 +10,8 @@ data class DrawLotHistory(
     @ColumnInfo(name = "lot_id")
     val lotId: Int,
 
-    @ColumnInfo(name = "drew_on")
-    val drewOn: ZonedDateTime
+    @ColumnInfo(name = "drew_at")
+    val drewAt: ZonedDateTime
 ) {
     @PrimaryKey(autoGenerate = true)
     var id: Int = 0

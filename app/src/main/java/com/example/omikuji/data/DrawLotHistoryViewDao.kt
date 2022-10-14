@@ -7,6 +7,6 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface DrawLotHistoryViewDao {
 
-    @Query("SELECT * FROM draw_lot_histories_view ORDER BY drew_on")
-    fun getAllOrderByDrewOn(): Flow<List<DrawLotHistoryView>>
+    @Query("SELECT * FROM draw_lot_histories_view ORDER BY drew_at")
+    fun getAllOrderByDrewAt(): Flow<List<DrawLotHistoryView>>
 }

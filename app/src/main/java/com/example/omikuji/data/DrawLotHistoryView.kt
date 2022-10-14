@@ -10,7 +10,7 @@ import java.time.ZonedDateTime
 SELECT
     dlh.id,
     ld.lot_name,
-    dlh.drew_on
+    dlh.drew_at
 FROM draw_lot_histories dlh
 JOIN lot_details ld on ld.id = dlh.lot_id
 """)
@@ -19,6 +19,6 @@ data class DrawLotHistoryView (
     val drawLotHistoryId: Long,
     @ColumnInfo(name = "lot_name")
     val lotName: String,
-    @ColumnInfo(name = "drew_on")
-    val drewOn: ZonedDateTime
+    @ColumnInfo(name = "drew_at")
+    val drewAt: ZonedDateTime
 )

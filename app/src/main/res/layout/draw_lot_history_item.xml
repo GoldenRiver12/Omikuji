@@ -24,10 +24,10 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/drew_on"
+                android:id="@+id/drew_at"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text='@{drawLotHistoryView.drewOn.format(DateTimeFormatter.ofPattern("uuuu-MM-dd hh:mm:ss z"))}'
+                android:text='@{drawLotHistoryView.drewAt.format(DateTimeFormatter.ofPattern("uuuu-MM-dd hh:mm:ss z"))}'
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -41,7 +41,7 @@
                 android:text='@{drawLotHistoryView.lotName}'
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/drew_on"
+                app:layout_constraintStart_toEndOf="@+id/drew_at"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="大吉" />
         </androidx.constraintlayout.widget.ConstraintLayout>
